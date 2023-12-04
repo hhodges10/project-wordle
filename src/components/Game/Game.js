@@ -1,5 +1,8 @@
 import React from 'react';
 
+import GameInput from '../GameInput';
+import PreviousGuesses from '../PreviousGuesses';
+
 import { sample } from '../../utils';
 import { WORDS } from '../../data';
 
@@ -9,7 +12,18 @@ const answer = sample(WORDS);
 console.info({ answer });
 
 function Game() {
-  return <>Put a game here!</>;
+  const [guessList, setGuessList] = React.useState([]);
+  function handleGuessSubmission(guess) {
+    const nextGuessList = [...guessList, guess];
+    setGuessList(nextGuessList);
+  }
+
+  return (
+    <>
+      <PreviousGuesses guessList={guessList} />
+      <GameInput handleGuessSubmission={handleGuessSubmission} />
+    </>
+  );
 }
 
 export default Game;
