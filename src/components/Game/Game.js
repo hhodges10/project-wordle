@@ -6,6 +6,7 @@ import GameBanner from '../GameBanner/GameBanner';
 
 import { sample } from '../../utils';
 import { WORDS } from '../../data';
+import { NUM_OF_GUESSES_ALLOWED } from '../../constants';
 
 // Pick a random word on every pageload.
 const answer = sample(WORDS);
@@ -19,7 +20,7 @@ function Game() {
     const nextGuessList = [...guessList, guess];
     if (guess === answer) {
       setGameStatus('won');
-    } else if (nextGuessList.length === 6) {
+    } else if (nextGuessList.length === NUM_OF_GUESSES_ALLOWED) {
       setGameStatus('lost');
     }
     setGuessList(nextGuessList);
@@ -32,7 +33,11 @@ function Game() {
         handleGuessSubmission={handleGuessSubmission}
         gameStatus={gameStatus}
       />
-      <GameBanner gameStatus={gameStatus} numGuesses={guessList.length} />
+      <GameBanner
+        gameStatus={gameStatus}
+        numGuesses={guessList.length}
+        answer={answer}
+      />
     </>
   );
 }

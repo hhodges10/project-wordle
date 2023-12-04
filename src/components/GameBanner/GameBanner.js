@@ -1,6 +1,6 @@
 import React from 'react';
 
-function GameBanner({ gameStatus, numGuesses }) {
+function GameBanner({ gameStatus, numGuesses, answer }) {
   const happyBanner = (
     <div className="happy banner">
       <p>
@@ -16,22 +16,18 @@ function GameBanner({ gameStatus, numGuesses }) {
   const sadBanner = (
     <div className="sad banner">
       <p>
-        Sorry, the correct answer is <strong>LEARN</strong>.
+        Sorry, the correct answer is <strong>{answer}</strong>.
       </p>
     </div>
   );
 
-  function displayBanner() {
-    if (gameStatus === 'won') {
-      return happyBanner;
-    } else if (gameStatus === 'lost') {
-      return sadBanner;
-    } else {
-      return undefined;
-    }
+  if (gameStatus === 'won') {
+    return happyBanner;
+  } else if (gameStatus === 'lost') {
+    return sadBanner;
+  } else {
+    return undefined;
   }
-
-  return displayBanner();
 }
 
 export default GameBanner;
