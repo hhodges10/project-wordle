@@ -1,5 +1,8 @@
 import React from 'react';
 
+// EX5 note: see solution video for the reusable component approach
+// I'm too lazy to change everything right now, but like the way it's done :)
+
 function GameBanner({ gameStatus, numGuesses, answer }) {
   const happyBanner = (
     <div className="happy banner">

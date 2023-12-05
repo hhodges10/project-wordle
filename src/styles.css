@@ -230,3 +230,41 @@ h1 {
     transform: translateY(0%);
   }
 }
+
+.keyboard-row {
+  display: flex;
+  justify-content: center;
+}
+
+.keyboard-key {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 45px;
+  width: 35px;
+  background-color: #d3d6da;
+  margin: 0 3px;
+  border-radius: 10%;
+}
+
+.keyboard-key.correct {
+  background: var(--color-success);
+  border-color: var(--color-success);
+  color: white;
+}
+.keyboard-key.incorrect {
+  background: var(--color-gray-300);
+  border-color: var(--color-gray-300);
+  color: white;
+}
+.keyboard-key.misplaced {
+  background: var(--color-warning);
+  border-color: var(--color-warning);
+  color: white;
+}
+
+.keyboard-key__letter {
+  font-family: Noto Sans, sans-serif;
+  font-size: 1.5rem;
+  text-align: center;
+}

@@ -7,9 +7,7 @@ function Cell({ letter, status }) {
   return <span className={cellClass}>{letter}</span>;
 }
 
-function Guess({ value, answer }) {
-  const result = checkGuess(value, answer);
-
+function Guess({ result }) {
   return (
     <div className="guess-results">
       <p className="guess">
